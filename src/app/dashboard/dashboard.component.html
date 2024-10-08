@@ -1,22 +1,26 @@
 <ng-container>
   <div class="main-container">
-    <ng-container></ng-container>
-    @for (drink of beverages; track $index) {
-    <mat-card class="drink-card mat-elevation-z10" appearance="outlined">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title>{{ drink.strCategory }}</mat-card-title>
-          <mat-card-subtitle>{{ drink.strAlcoholic }}</mat-card-subtitle>
-          <img alt="shiba" mat-card-sm-image [src]="drink.strDrinkThumb" />
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi doloribus
-        incidunt ullam temporibus, omnis laborum minima eligendi totam itaque?
-        Libero, deserunt minima? Laudantium asperiores officiis animi?
-        Repudiandae, id! Est, similique.
-      </mat-card-content>
-    </mat-card>
-    }
+    <ng-container>
+      <h1>Cocktails</h1>
+    </ng-container>
+    <ng-container>
+      @for (drink of beverages; track $index) {
+      <mat-card class="drink-card mat-elevation-z10" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{ drink.strDrink }}</mat-card-title>
+            <mat-card-subtitle
+              >{{ drink.strCategory }} |
+              {{ drink.strAlcoholic }}</mat-card-subtitle
+            >
+            <img alt="shiba" mat-card-sm-image [src]="drink.strDrinkThumb" />
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          {{ drink.strInstructions }}
+        </mat-card-content>
+      </mat-card>
+      }
+    </ng-container>
   </div>
 </ng-container>
