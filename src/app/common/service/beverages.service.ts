@@ -14,4 +14,10 @@ export class BeveragesService {
       `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a`
     );
   }
+
+  findBeverageById(id: number): Observable<Beverage> {
+    return this.http.get<Beverage>(
+      `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`
+    );
+  }
 }

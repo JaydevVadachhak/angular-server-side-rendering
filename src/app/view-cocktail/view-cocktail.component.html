@@ -1,0 +1,32 @@
+<ng-container *ngIf="cocktailData">
+  <div class="wrapper">
+    <mat-chip-set aria-label="Fish selection" class="chip-set-wrapper">
+      <mat-chip>{{ cocktailData.strMeasure1 }}</mat-chip>
+      <mat-chip>{{ cocktailData.strMeasure2 }}</mat-chip>
+      <mat-chip>{{ cocktailData.strMeasure3 }}</mat-chip>
+    </mat-chip-set>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ cocktailData.strDrink }}</mat-card-title>
+        <mat-card-subtitle>{{ cocktailData.strAlcoholic }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        [src]="cocktailData.strDrinkThumb"
+        [alt]="cocktailData.strDrink"
+      />
+      <mat-card-content>
+        <p>
+          {{ cocktailData.strInstructions }}
+        </p>
+        <p>
+          {{ cocktailData.strInstructionsES }}
+        </p>
+        <p>
+          {{ cocktailData.strInstructionsDE }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
