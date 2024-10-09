@@ -11,7 +11,7 @@ export class BeveragesService {
 
   findBeverages(): Observable<Beverage[]> {
     return this.http.get<Beverage[]>(
-      `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a`
+      `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=b`
     );
   }
 

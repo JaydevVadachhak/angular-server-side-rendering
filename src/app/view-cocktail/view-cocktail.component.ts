@@ -9,6 +9,7 @@ import {
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-cocktail',
@@ -26,7 +27,9 @@ export class ViewCocktailComponent implements OnInit {
     private readonly beverageService: BeveragesService,
     private readonly route: ActivatedRoute,
     private readonly _snackBar: MatSnackBar,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly title: Title,
+    private readonly meta: Meta
   ) {}
 
   ngOnInit() {
@@ -36,6 +39,11 @@ export class ViewCocktailComponent implements OnInit {
       .subscribe((res: any) => {
         if (res.drinks?.length > 0) {
           this.cocktailData = res.drinks[0];
+          this.title.setTitle(this.cocktailData.strDrink);
+          this.meta.updateTag({
+            name: 'description',
+            content: this.cocktailData.strCategory,
+          });
         } else {
           this._snackBar
             .open('No Data Found', 'Ok', {

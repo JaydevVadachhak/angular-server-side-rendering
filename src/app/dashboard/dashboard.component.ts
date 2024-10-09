@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { Beverage } from '../common/interface/Beverage';
 import { BeveragesService } from '../common/service/beverages.service';
 import { RouterModule } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,9 +16,13 @@ import { RouterModule } from '@angular/router';
 export class DashboardComponent {
   public beverages!: Beverage[];
 
-  constructor(private readonly beverageService: BeveragesService) {}
+  constructor(
+    private readonly beverageService: BeveragesService,
+    private readonly title: Title
+  ) {}
 
   ngOnInit() {
+    this.title.setTitle('Cocktails');
     this.beverageService.findBeverages().subscribe((res: any) => {
       this.beverages = res.drinks;
     });
